@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Help Center</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">◎</div>
+      <div class="brand-text">Help Center</div>
+    </div>
+    <div class="top-links">
+      <a href="#" class="link">Feedback</a>
+      <a href="#" class="link">Submit a request</a>
+      <button class="btn ghost" id="fakeSignIn">Sign in</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- PAGE 1 -->
+    <section class="card page active" id="page1">
+      <div class="hero">
+        <div class="shield">🛡️</div>
+        <div>
+          <h1>HELP CENTER</h1>
+          <p class="muted">Submit your request below.</p>
+        </div>
+        <div class="bot">🤖</div>
+      </div>
+
+      <div class="form">
+        <div class="row">
+          <label>Email address</label>
+          <input id="email" type="email" placeholder="e.g., maya@email.com" autocomplete="off" />
+        </div>
+
+        <div class="row">
+          <label>Display name</label>
+          <input id="displayName" type="text" placeholder="e.g., Focus Queen" autocomplete="off" />
+        </div>
+
+        <div class="row">
+          <label>Username</label>
+          <input id="userName" type="text" placeholder="e.g., maya" autocomplete="off" />
+        </div>
+<div class="row">
+          <label>Category</label>
+          <select id="category">
+            <option value="">Select…</option>
+            <option>Support</option>
+            <option>Appeal</option>
+            <option>Help Centre</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <label>Describe the situation (max 200 words)</label>
+          <textarea id="desc200" rows="5" placeholder="Explain what happened…"></textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="next1">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="card page disco-page" id="page2">
+      <div id="discoPoppers" class="disco-poppers" aria-hidden="true"></div>
+      <div class="twist">
+        <div class="twist-badge">⚠️ Account Alert</div>
+        <h2>Oh shoot… this is <span class="accent">NOT</span> a ban.</h2>
+        <p class="muted big">
+          It’s your birthday, <b>Maya</b>! 🎉
+          <br/>Let’s see what your friends have done for you… but before that, you have to pass through a few things 😈
+        </p>
+
+        <div class="twist-gifs">
+          <iframe class="twist-embed" src="https://tenor.com/embed/1028444324526858358" loading="lazy" frameborder="0" allowfullscreen></iframe>
+          <iframe class="twist-embed" src="https://tenor.com/embed/18254315447905372498" loading="lazy" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="actions split">
+          <button class="btn danger back-dodge" id="back2">Back</button>
+          <button class="btn" id="next2">Continue</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="card page" id="page3">
+      <h2>Step 3: Secret Code</h2>
+      <p class="muted">Hint: <b>Rajit</b></p>
+      <div class="secret-prompt">ENTER SECRET CODE</div>
+
+      <div class="row">
+        <label>Secret code</label>
+        <input id="phraseInput" type="text" placeholder="Type here…" autocomplete="off" />
+      </div>
+
+      <div class="chaos-area">
+        <div id="emojiSpam" class="emoji-spam"></div>
+      </div>
+
+      <div class="actions split">
+        <button class="btn danger back-dodge" id="back3">Back</button>
+        <button class="btn" id="next3" disabled>Next</button>
+      </div>
+    </section>
+
+    <!-- GAME 1 -->
+    <section class="card page" id="game1">
+      <h2>Game 1: Catch the Face</h2>
+      <p class="muted">Click the face 6 times.</p>
+
+      <div class="catch-wrap">
+        <div class="tiny">Hits: <span id="catchHits">0</span>/6</div>
+        <div class="catch-area" id="catchArea">
+          <img id="catchTarget" class="catch-target" alt="target" />
+        </div>
+        <div class="tiny">Tip: It starts running harder after 2 seconds.</div>
+      </div>
+
+      <div class="actions split">
+        <button class="btn danger back-dodge" id="backG1">Back</button>
+        <button class="btn" id="nextG1" disabled>Next</button>
+      </div>
+    </section>
+
+    <!-- GAME 2 -->
+    <section class="card page" id="game4">
+      <h2>Game 2: Flappy Face</h2>
+      <p class="muted">Click / tap / Space to flap. Score 5 to pass. Press <b>any key</b> or <b>click</b> to restart if you crash.</p>
+
+      <canvas id="flappyCanvas" width="720" height="420"></canvas>
+      <div class="tiny">Score: <span id="flappyScore">0</span> / 5</div>
+
+      <div class="actions split">
+        <button class="btn danger back-dodge" id="backG4">Back</button>
+        <button class="btn" id="nextG4" disabled>Next</button>
+      </div>
+    </section>
+
+    <!-- BEST FRIEND -->
+    <section class="card page" id="bestFriend">
+      <h2>Final Question 😈</h2>
+      <p class="muted">Select your best friend.</p>
+
+      <div class="choices">
+        <button class="choice" data-choice="basmallah">Basmallah</button>
+        <button class="choice" data-choice="karthik">Karthik</button>
+        <button class="choice" data-choice="rajit">Rajit</button>
+      </div>
+
+      <div id="choiceResult" class="result"></div>
+
+      <div class="actions">
+        <button class="btn" id="nextFinal" disabled>Next</button>
+      </div>
+    </section>
+
+
+    <!-- APOLOGY GATE (BEFORE FINAL REVEAL) -->
+    <section class="card page" id="apology">
+      <h2>Final Check ✅</h2>
+      <p class="muted">Write a <b>500 word apology</b> to unlock the final page.</p>
+
+      <div class="row">
+        <label>Apology (500 words)</label>
+        <textarea id="apologyText" rows="9" placeholder="Dear Maya…"></textarea>
+        <div class="tiny"><span id="apologyCount">0</span>/500 words</div>
+        <div class="tiny">Tip: Try ~450–500 words to pass.</div>
+        <div id="apologyError" class="form-error" aria-live="polite"></div>
+      </div>
+
+      <div class="actions split">
+        <button class="btn danger back-dodge" id="backApology">Back</button>
+        <button class="btn" id="nextApology">Unlock Final Page</button>
+      </div>
+    </section>
+
+    <!-- PARTY MODE (FINAL REVEAL) -->
+    <section class="card page party-page" id="party">
+      <div class="party-header">
+        <div class="party-title">✨ Happy Birthday Maya ✨</div>
+        <div class="party-subtitle">Dance mode activated 💃🕺</div>
+      </div>
+
+      <div id="partyEmojiLayer" class="party-emoji-layer" aria-hidden="true"></div>
+      <div id="partyLights" class="party-lights" aria-hidden="true"></div>
+      <div id="partyConfetti" class="party-confetti" aria-hidden="true"></div>
+
+      <div class="party-gif-area">
+        <div id="gifStage" class="gif-stage" aria-hidden="true"></div>
+      </div>
+
+      <div class="party-scroll-hint">Scroll down for your surprises ↓</div>
+
+      <div class="party-video-panel">
+        <div class="party-video-title">🎁 Messages for Maya</div>
+
+        <button class="btn danger" id="stopSong">Stop Song ⛔</button>
+        <div class="media-shell">
+          <div class="media-author" id="mediaAuthor">From: —</div>
+
+          <video id="mediaVideo" class="media-video" controls playsinline preload="metadata"></video>
+          <audio id="mediaAudio" class="media-audio hidden" controls preload="metadata"></audio>
+          <iframe id="mediaTextFrame" class="media-text-frame hidden" title="message"></iframe>
+
+          <div id="mediaTextCard" class="media-text hidden" role="article" aria-live="polite">
+            <div class="media-text-body" id="mediaTextBody"></div>
+          </div>
+        </div>
+
+        <div class="video-controls">
+          <button class="btn" id="mediaStart">Start Slideshow ▶</button>
+          <button class="btn ghost" id="mediaReload">Reload Messages</button>
+          <button class="btn ghost" id="playSong">Play Song 🎵</button>
+          <button class="btn ghost" id="mediaPrev">⟵ Back</button>
+          <button class="btn ghost" id="mediaReplay">Replay</button>
+          <button class="btn" id="mediaNext">Next ⟶</button>
+        </div>
+
+        <div class="tiny" id="mediaCount">1 / 1</div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="restart">Restart</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="corner-note">Independent Help Desk</div>
+<div id="musicBanner" class="music-banner hidden">Tap anywhere to enable music 🔊</div>
+
+  <!-- selection overlay -->
+  <div id="overlay" class="overlay hidden" aria-hidden="true">
+    <div id="overlayText" class="overlay-text"></div>
+    <div id="overlayFX" class="overlay-fx"></div>
+  </div>
+
+  <audio id="sfxFaah" src="assets/sounds/faah.mp3" preload="auto"></audio>
+  <audio id="sfxChaos" src="assets/sounds/chaos.mp3" preload="auto"></audio>
+  <audio id="sfxMaya" src="assets/sounds/maya.mp3" preload="auto"></audio>
+  <audio id="sfxCheer" src="assets/sounds/cheer.mp3" preload="auto"></audio>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
